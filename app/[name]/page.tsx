@@ -50,10 +50,6 @@ function PokemonPage() {
       ),
   );
 
-  useEffect(() => {
-    console.log('pokemonAbils', pokemonAbils);
-  }, [pokemonAbils]);
-
   const { data: evolutionChainRes } = useEvolutionChain({
     id: Number(
       pokemonSpecies?.evolution_chain.url

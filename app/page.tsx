@@ -1,10 +1,4 @@
 import PokemonListArea from '@/components/area/pokemonListArea';
-import PlayListcarousel from '@/components/playListcarousel';
-import PokemonInfoModal from '@/components/pokemonInfoModal';
-import PokemonList from '@/components/pokemonList';
-import usePlaylist from '@/lib/client/usePlaylist';
-import { usePokemonModalStore } from '@/shared/store/globalStore';
-import { MouseEvent, KeyboardEvent } from 'react';
 
 export default function Home() {
   // const { playlist, isLoading, error } = usePlaylist();
