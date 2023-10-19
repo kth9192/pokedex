@@ -11,7 +11,7 @@ import axios from 'axios';
 import { PokemonAbilityRes, PokemonSpeciesResponse } from '@/interface/pokemon';
 import { typeList } from '@/shared/resource';
 import useEvolutionChain from '@/lib/client/useEvolutionChain';
-import { makeDepthFirstList } from '@/shared/algorithm';
+import { makeDepthFirstList, toneDownColor } from '@/shared/algorithm';
 import { ArrowSmallRightIcon } from '@heroicons/react/24/outline';
 import { usePathname } from 'next/navigation';
 import pokeball from '/public/pokeball-48.png';
@@ -85,7 +85,11 @@ function PokemonPage() {
         className={
           'flex w-[250px] mx-auto aspect-square border-2 rounded bg-white p-8 mb-8 relative'
         }
-        style={{ borderColor: pokemonSpecies?.color.name ?? '#bababa' }}
+        style={{
+          borderColor: pokemonSpecies?.color.name
+            ? toneDownColor(pokemonSpecies?.color.name, 0.8)
+            : '#bababa',
+        }}
       >
         <Image
           src={pokemonInfo?.sprites.front_default ?? '/null.svg'}
@@ -113,7 +117,9 @@ function PokemonPage() {
           <tr className="text-white">
             <th
               style={{
-                backgroundColor: pokemonSpecies?.color.name ?? '#bababa',
+                backgroundColor: pokemonSpecies?.color.name
+                  ? toneDownColor(pokemonSpecies?.color.name, 0.8)
+                  : '#bababa',
               }}
               className="py-2"
             >
@@ -121,7 +127,9 @@ function PokemonPage() {
             </th>
             <th
               style={{
-                backgroundColor: pokemonSpecies?.color.name ?? '#bababa',
+                backgroundColor: pokemonSpecies?.color.name
+                  ? toneDownColor(pokemonSpecies?.color.name, 0.8)
+                  : '#bababa',
               }}
               className="py-2"
             >
@@ -129,7 +137,9 @@ function PokemonPage() {
             </th>
             <th
               style={{
-                backgroundColor: pokemonSpecies?.color.name ?? '#bababa',
+                backgroundColor: pokemonSpecies?.color.name
+                  ? toneDownColor(pokemonSpecies?.color.name, 0.8)
+                  : '#bababa',
               }}
               className="py-2"
             >
@@ -182,7 +192,11 @@ function PokemonPage() {
                 >
                   <span
                     className={`cursor-pointer rounded-full py-1 px-2 font-medium border text-white`}
-                    style={{ backgroundColor: pokemonSpecies?.color.name }}
+                    style={{
+                      backgroundColor: pokemonSpecies?.color.name
+                        ? toneDownColor(pokemonSpecies?.color.name, 0.8)
+                        : '#bababa',
+                    }}
                   >
                     {
                       tree.names.find((name) => name.language.name === 'ko')
