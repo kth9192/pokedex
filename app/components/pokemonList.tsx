@@ -26,7 +26,7 @@ function PokemonList() {
 
   return (
     <div>
-      <div className="grid w-full grid-cols-4 xl:grid-cols-5 gap-2">
+      <div className="w-full grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-2">
         {pokemonList?.map((pokemonInfo) => (
           <PokemonCard key={pokemonInfo.id} {...pokemonInfo} />
         ))}
