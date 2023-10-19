@@ -8,7 +8,7 @@ export default function Home() {
   // if (isLoading) return <div>loading...</div>;
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-6 bg-[#F6F8FE]">
+    <main className="flex min-h-screen flex-col items-center p-6 bg-[#F6F8FE] dark:bg-black dark:text-white">
       {/* <div className="flex flex-col gap-2">
         <h2 className="text-white text-2xl font-bold">Now Trending</h2>
         {playlist && <PlayListcarousel items={playlist} />}

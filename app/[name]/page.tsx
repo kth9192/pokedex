@@ -11,13 +11,14 @@ import axios from 'axios';
 import { PokemonAbilityRes, PokemonSpeciesResponse } from '@/interface/pokemon';
 import { typeList } from '@/shared/resource';
 import useEvolutionChain from '@/lib/client/useEvolutionChain';
-import { makeDepthFirstList } from '@/shared/algorithm';
+import { makeDepthFirstList, toneDownColor } from '@/shared/algorithm';
 import { ArrowSmallRightIcon } from '@heroicons/react/24/outline';
 import { usePathname } from 'next/navigation';
 import pokeball from '/public/pokeball-48.png';
 import classNames from 'classnames';
 import usePokemonType from '@/lib/client/usePokemonType';
 import Tooltip from '@/components/tooltip';
+import Link from 'next/link';
 
 Modal.setAppElement('#modal-root');
 
@@ -80,12 +81,20 @@ function PokemonPage() {
   const handleMoveToEvolutionaryTree = (id: number) => {};
 
   return (
-    <main className={'flex flex-col min-h-screen bg-[#F6F8FE] py-8'}>
+    <main
+      className={
+        'flex flex-col min-h-screen bg-[#F6F8FE] dark:bg-black dark:text-white py-8'
+      }
+    >
       <div
         className={
           'flex w-[250px] mx-auto aspect-square border-2 rounded bg-white p-8 mb-8 relative'
         }
-        style={{ borderColor: pokemonSpecies?.color.name ?? '#bababa' }}
+        style={{
+          borderColor: pokemonSpecies?.color.name
+            ? toneDownColor(pokemonSpecies?.color.name, 0.8)
+            : '#bababa',
+        }}
       >
         <Image
           src={pokemonInfo?.sprites.front_default ?? '/null.svg'}
@@ -113,7 +122,9 @@ function PokemonPage() {
           <tr className="text-white">
             <th
               style={{
-                backgroundColor: pokemonSpecies?.color.name ?? '#bababa',
+                backgroundColor: pokemonSpecies?.color.name
+                  ? toneDownColor(pokemonSpecies?.color.name, 0.8)
+                  : '#bababa',
               }}
               className="py-2"
             >
@@ -121,7 +132,9 @@ function PokemonPage() {
             </th>
             <th
               style={{
-                backgroundColor: pokemonSpecies?.color.name ?? '#bababa',
+                backgroundColor: pokemonSpecies?.color.name
+                  ? toneDownColor(pokemonSpecies?.color.name, 0.8)
+                  : '#bababa',
               }}
               className="py-2"
             >
@@ -129,7 +142,9 @@ function PokemonPage() {
             </th>
             <th
               style={{
-                backgroundColor: pokemonSpecies?.color.name ?? '#bababa',
+                backgroundColor: pokemonSpecies?.color.name
+                  ? toneDownColor(pokemonSpecies?.color.name, 0.8)
+                  : '#bababa',
               }}
               className="py-2"
             >
@@ -165,7 +180,7 @@ function PokemonPage() {
       </table>
 
       <div className="flex flex-col items-center mb-6">
-        <h2 className="font-bold mb-2">진화단계</h2>
+        <h2 className="font-bold mb-4">진화단계</h2>
         {isTreeLoading ? (
           <div>is loading...</div>
         ) : (
@@ -180,15 +195,21 @@ function PokemonPage() {
                   className="flex items-center font-bold gap-2 hover:text-black"
                   onClick={() => handleMoveToEvolutionaryTree(tree.id)}
                 >
-                  <span
-                    className={`cursor-pointer rounded-full py-1 px-2 font-medium border text-white`}
-                    style={{ backgroundColor: pokemonSpecies?.color.name }}
-                  >
-                    {
-                      tree.names.find((name) => name.language.name === 'ko')
-                        ?.name
-                    }
-                  </span>
+                  <Link href={`/${tree.id}`}>
+                    <span
+                      className={`cursor-pointer rounded-full py-1 px-2 font-medium border text-white`}
+                      style={{
+                        backgroundColor: pokemonSpecies?.color.name
+                          ? toneDownColor(pokemonSpecies?.color.name, 0.8)
+                          : '#bababa',
+                      }}
+                    >
+                      {
+                        tree.names.find((name) => name.language.name === 'ko')
+                          ?.name
+                      }
+                    </span>
+                  </Link>
                   {idx <
                     pokemonEvolutionTree?.map(
                       (tree) =>
