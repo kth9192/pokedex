@@ -85,7 +85,7 @@ function PokemonPage() {
         className={
           'flex w-[250px] mx-auto aspect-square border-2 rounded bg-white p-8 mb-8 relative'
         }
-        style={{ borderColor: pokemonSpecies?.color.name }}
+        style={{ borderColor: pokemonSpecies?.color.name ?? '#bababa' }}
       >
         <Image
           src={pokemonInfo?.sprites.front_default ?? '/null.svg'}
@@ -112,19 +112,25 @@ function PokemonPage() {
         <thead>
           <tr className="text-white">
             <th
-              style={{ backgroundColor: pokemonSpecies?.color.name }}
+              style={{
+                backgroundColor: pokemonSpecies?.color.name ?? '#bababa',
+              }}
               className="py-2"
             >
               분류
             </th>
             <th
-              style={{ backgroundColor: pokemonSpecies?.color.name }}
+              style={{
+                backgroundColor: pokemonSpecies?.color.name ?? '#bababa',
+              }}
               className="py-2"
             >
               키/몸무게
             </th>
             <th
-              style={{ backgroundColor: pokemonSpecies?.color.name }}
+              style={{
+                backgroundColor: pokemonSpecies?.color.name ?? '#bababa',
+              }}
               className="py-2"
             >
               타입
