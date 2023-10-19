@@ -54,9 +54,9 @@ function PokemonListArea() {
   }, [minNum, maxNum]);
 
   return (
-    <div>
+    <div className="flex justify-center w-full">
       {/* <SearchBar borderClass="mb-4" /> */}
-      <div>
+      <div className="w-full md:w-[80%] lg:w-1/2">
         <PokemonList />
 
         <nav className="flex justify-center gap-2 mt-4">
