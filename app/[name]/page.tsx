@@ -18,6 +18,7 @@ import pokeball from '/public/pokeball-48.png';
 import classNames from 'classnames';
 import usePokemonType from '@/lib/client/usePokemonType';
 import Tooltip from '@/components/tooltip';
+import Link from 'next/link';
 
 Modal.setAppElement('#modal-root');
 
@@ -190,19 +191,21 @@ function PokemonPage() {
                   className="flex items-center font-bold gap-2 hover:text-black"
                   onClick={() => handleMoveToEvolutionaryTree(tree.id)}
                 >
-                  <span
-                    className={`cursor-pointer rounded-full py-1 px-2 font-medium border text-white`}
-                    style={{
-                      backgroundColor: pokemonSpecies?.color.name
-                        ? toneDownColor(pokemonSpecies?.color.name, 0.8)
-                        : '#bababa',
-                    }}
-                  >
-                    {
-                      tree.names.find((name) => name.language.name === 'ko')
-                        ?.name
-                    }
-                  </span>
+                  <Link href={`/${tree.id}`}>
+                    <span
+                      className={`cursor-pointer rounded-full py-1 px-2 font-medium border text-white`}
+                      style={{
+                        backgroundColor: pokemonSpecies?.color.name
+                          ? toneDownColor(pokemonSpecies?.color.name, 0.8)
+                          : '#bababa',
+                      }}
+                    >
+                      {
+                        tree.names.find((name) => name.language.name === 'ko')
+                          ?.name
+                      }
+                    </span>
+                  </Link>
                   {idx <
                     pokemonEvolutionTree?.map(
                       (tree) =>
