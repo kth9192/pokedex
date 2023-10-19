@@ -6,11 +6,9 @@ import {
   usePokemonListStore,
   usePokemonModalStore,
 } from '@/shared/store/globalStore';
-import React, { useEffect, useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
-import usePokemonDefault from '@/lib/client/usePokemonDefault';
 import classNames from 'classnames';
-import SearchBar from '@/components/searchBar';
+import { useEffect, useState } from 'react';
 
 function PokemonListArea() {
   const pageSize = 10;
@@ -68,6 +66,7 @@ function PokemonListArea() {
           <ol className="flex items-center gap-1">
             {pageArr.map((item) => (
               <li
+                key={item}
                 className={classNames(
                   'w-6 rounded aspect-square cursor-pointer',
                   {
