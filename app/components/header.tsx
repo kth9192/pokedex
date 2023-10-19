@@ -6,7 +6,7 @@ import logo from '/public/pika-48.png';
 
 function Header() {
   return (
-    <header className="flex w-full h-12 items-center shadow-lg bg-white px-8 border">
+    <header className="flex w-full h-12 items-center shadow-lg bg-white dark:text-white dark:bg-stone-950	border-none px-8 border">
       <Link href={'/'}>
         <div className="flex items-center gap-2">
           {/* <BookOpenIcon className="w-6 h-6" /> */}

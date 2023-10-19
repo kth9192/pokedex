@@ -5,6 +5,7 @@ import './globals.scss';
 import Header from '@/components/header';
 import { Noto_Sans_KR } from 'next/font/google';
 import { SWRConfig } from 'swr';
+import classNames from 'classnames';
 
 const inter = Inter({ subsets: ['latin'] });
 const notoSansKr = Noto_Sans_KR({
@@ -23,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${notoSansKr.className}`}>
+    <html lang="en" className={classNames(notoSansKr.className)}>
       <body>
         <Header />
         {children}

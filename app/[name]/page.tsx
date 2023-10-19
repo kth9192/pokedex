@@ -81,7 +81,11 @@ function PokemonPage() {
   const handleMoveToEvolutionaryTree = (id: number) => {};
 
   return (
-    <main className={'flex flex-col min-h-screen bg-[#F6F8FE] py-8'}>
+    <main
+      className={
+        'flex flex-col min-h-screen bg-[#F6F8FE] dark:bg-black dark:text-white py-8'
+      }
+    >
       <div
         className={
           'flex w-[250px] mx-auto aspect-square border-2 rounded bg-white p-8 mb-8 relative'
@@ -176,7 +180,7 @@ function PokemonPage() {
       </table>
 
       <div className="flex flex-col items-center mb-6">
-        <h2 className="font-bold mb-2">진화단계</h2>
+        <h2 className="font-bold mb-4">진화단계</h2>
         {isTreeLoading ? (
           <div>is loading...</div>
         ) : (
