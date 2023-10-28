@@ -16,17 +16,17 @@ function PokemonListArea() {
   const setPageNum = usePokemonListStore((state) => state.setPageNum);
   const [pageArr, setPageArr] = useState<number[]>([]);
 
-  const isOpen = usePokemonModalStore((state) => state.isOpen);
-  const convertModalState = usePokemonModalStore(
-    (state) => state.convertModalState,
-  );
+  // const isOpen = usePokemonModalStore((state) => state.isOpen);
+  // const convertModalState = usePokemonModalStore(
+  //   (state) => state.convertModalState,
+  // );
 
   const [minNum, setMinNum] = useState(1);
   const [maxNum, setMaxNum] = useState(10);
 
-  const handleModalOpen = () => {
-    convertModalState();
-  };
+  // const handleModalOpen = () => {
+  //   convertModalState();
+  // };
 
   const handlePreviousPage = () => {
     pageNum > 1 && setPageNum(pageNum - 1);
@@ -86,7 +86,7 @@ function PokemonListArea() {
         </nav>
       </div>
 
-      <PokemonInfoModal isOpen={isOpen} closeModal={handleModalOpen} />
+      {/* <PokemonInfoModal isOpen={isOpen} closeModal={handleModalOpen} /> */}
     </div>
   );
 }
